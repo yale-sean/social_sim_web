@@ -1,0 +1,21 @@
+name: instance
+root: ~/sim_ws
+
+windows:
+  - dev_abuse:
+      layout: main-vertical
+      panes:
+        - shell:
+          - printf '\033]2;%s\033\\' 'shell'
+          - env
+        - novnc:
+          - printf '\033]2;%s\033\\' 'novnc'
+          - /opt/websockify/run 59${PORT} --web=/opt/noVNC --wrap-mode=ignore -- /opt/TurboVNC/bin/vncserver $DISPLAY -vgl -securitytypes TLSNone,X509None,None -noxstartup
+        - ros:
+          - printf '\033]2;%s\033\\' 'ros'
+          - source ~/sim_ws/devel/setup.bash
+          - roslaunch social_sim_ros jackal_demo_slam_random_dest.launch port:=${}
+        - game :
+          - printf '\033]2;%s\033\\' 'game'
+          - sleep 3
+          - vglrun $HOME/sim_ws/social_sim_unity/Build/SurveyGame.X86_64 -scene Scenes/AgentControlLabScene

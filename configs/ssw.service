@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve the Social Sim Web project
+After=network.target
+
+[Service]
+User=ntsoi
+Group=www-data
+WorkingDirectory=/home/ntsoi/src/yale/social_sim_web
+Environment="PATH=/home/ntsoi/.local/bin"
+ExecStart=/home/ntsoi/.local/bin/uwsgi --ini configs/ssw.ini --logto /var/log/ssw/uwsgi.log
+
+[Install]
+WantedBy=multi-user.target

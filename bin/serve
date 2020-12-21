@@ -1,0 +1,4 @@
+#!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+export FLASK_APP=${DIR}/../src/server.py
+flask run --host=0.0.0.0

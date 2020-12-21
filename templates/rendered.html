@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YALE IMG</title>
+</head>
+<body>
+  <video id="theVideo" width="640" height="480" controls autoplay muted>
+    <source src="/rendered?id={{id}}&animal={{animal}}&video={{video}}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <script type="text/javascript">
+    var theVideo = document.getElementById('theVideo');
+    function theEnd(e) {
+      var p = theVideo.parentNode;
+      var code = document.createElement('div');
+      code.setAttribute('style', 'font-size:32pt;text-align:center;padding-top:150px;width:640px');
+      code.innerHTML = 'the phrase is: <b>{{animal}}</b>';
+      p.replaceChild(code, theVideo);
+    }
+    theVideo.addEventListener('ended',theEnd,false);
+  </script>
+</body>
+</html>
