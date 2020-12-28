@@ -2,6 +2,8 @@
 
 Web wrapper for the social sim web interface
 
+Documentation: [https://sean.interactive-machines.com/sean-ep.html](https://sean.interactive-machines.com/sean-ep.html)
+
 ## Host setup
 
 ### Clone an existing instance
